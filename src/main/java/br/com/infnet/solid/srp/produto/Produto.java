@@ -20,12 +20,8 @@ public class Produto {
         this.ultimoReajuste = ultimoReajuste;
     }
 
-    public void reajustaPreco(BigDecimal aumento) throws ValidationException {
-        BigDecimal percentualReajuste = aumento.divide(this.preco, RoundingMode.HALF_UP);
-        if(percentualReajuste.compareTo(new BigDecimal("0.3")) > 0 ){
-            throw  new ValidationException("Aumento não pode ser superior a 30%");
-        }
-        this.preco = this.preco.add(aumento);
+    public void reajustaPreco(BigDecimal novoPreco) throws ValidationException {
+        this.setPreco(novoPreco);
         this.ultimoReajuste = LocalDate.now();
     }
 
