@@ -6,58 +6,29 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class Produto {
-    private String nome;
-    private String fabricante;
-    private Categoria categoria;
-    private BigDecimal preco;
+    DadosComuns dadosComuns;
     private LocalDate ultimoReajuste;
+    private Ranking ranking;
 
-    public Produto(String nome, String fabricante, Categoria categoria, BigDecimal preco, LocalDate ultimoReajuste) {
-        this.nome = nome;
-        this.fabricante = fabricante;
-        this.categoria = categoria;
-        this.preco = preco;
+    public Produto(DadosComuns dadosComuns, LocalDate ultimoReajuste, Ranking ranking) {
+
         this.ultimoReajuste = ultimoReajuste;
+        this.ranking = ranking;
     }
 
     public void reajustaPreco(BigDecimal novoPreco)  {
-        this.setPreco(novoPreco);
+        this.dadosComuns.setPreco(novoPreco);
         this.ultimoReajuste = LocalDate.now();
     }
 
 
-    public String getNome() {
-        return nome;
+    public Ranking getRanking() {
+        return ranking;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setRanking(Ranking ranking) {
+        this.ranking = ranking;
     }
-
-    public String getFabricante() {
-        return fabricante;
-    }
-
-    public void setFabricante(String fabricante) {
-        this.fabricante = fabricante;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
-
-    public BigDecimal getPreco() {
-        return preco;
-    }
-
-    public void setPreco(BigDecimal preco) {
-        this.preco = preco;
-    }
-
 
     public LocalDate getUltimoReajuste() {
         return ultimoReajuste;
@@ -65,5 +36,9 @@ public class Produto {
 
     public void setUltimoReajuste(LocalDate ultimoReajuste) {
         this.ultimoReajuste = ultimoReajuste;
+    }
+
+    public void promover(Ranking novoRanking) {
+        this.setRanking(novoRanking);
     }
 }
