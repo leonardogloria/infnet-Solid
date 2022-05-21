@@ -20,7 +20,7 @@ public class Produto {
         this.ultimoReajuste = ultimoReajuste;
     }
 
-    public void reajustaPreco(BigDecimal novoPreco) throws ValidationException {
+    public void reajustaPreco(BigDecimal novoPreco)  {
         this.setPreco(novoPreco);
         this.ultimoReajuste = LocalDate.now();
     }
