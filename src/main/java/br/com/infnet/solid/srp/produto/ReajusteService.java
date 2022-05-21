@@ -13,14 +13,8 @@ public class ReajusteService {
         this.validacoes = validacoes;
     }
 
-    public void reajustaPreco(BigDecimal aumento, Produto produto) throws ValidationException  {
-        this.validacoes.forEach(v -> {
-            try {
-                v.valida(aumento,produto);
-            } catch (ValidationException e) {
-                e.printStackTrace();
-            }
-        });
+    public void reajustaPreco(BigDecimal aumento, Produto produto)   {
+        this.validacoes.forEach(v -> v.valida(aumento,produto));
         BigDecimal novoPreco = produto.getPreco().add(aumento);
         produto.reajustaPreco(novoPreco);
     }

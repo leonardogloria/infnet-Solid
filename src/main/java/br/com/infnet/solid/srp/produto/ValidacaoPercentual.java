@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class ValidacaoPercentual implements ValidacaoReajuste {
-    public void valida(BigDecimal aumento, Produto produto) throws ValidationException{
+    public void valida(BigDecimal aumento, Produto produto) {
         BigDecimal percentualReajuste = aumento.divide(produto.getPreco(), RoundingMode.HALF_UP);
         if(percentualReajuste.compareTo(new BigDecimal("0.3")) > 0 ){
             throw  new ValidationException("Aumento não pode ser superior a 30%");
