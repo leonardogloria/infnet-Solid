@@ -10,14 +10,11 @@ public class Produto {
     private BigDecimal preco;
     private LocalDate ultimoReajuste;
 
-    public void reajustaPreco(BigDecimal aumento){
-        BigDecimal percentualAumento = preco.divide(aumento, RoundingMode.HALF_UP);
-        if(percentualAumento.compareTo(new BigDecimal("0.3")) > 0){
-            throw new ValidationException("Aumento não pode ser maior que 30%");
-        }
-        preco= preco.add(aumento);
-        ultimoReajuste = LocalDate.now();
+    public void reajustaPreco(BigDecimal novoPreco){
+       this.preco = novoPreco;
+       this.ultimoReajuste = LocalDate.now();
     }
+
 
     public String getNome() {
         return nome;
