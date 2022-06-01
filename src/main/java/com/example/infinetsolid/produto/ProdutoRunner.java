@@ -6,11 +6,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ProdutoRunner {
+
     public static void main(String[] args) {
         Produto produto = new Produto();
         produto.setNome("Geladeira");
         produto.setPreco(new BigDecimal("4000"));
         produto.setUltimoReajuste(LocalDate.now());
+        produto.setCategoria(Categoria.GOLD);
 
         List<Validacao> validacoes = Arrays.asList(new ValidacaoPercentual(), new ValidacaoPeriodica());
         ReajusteService reajusteService = new ReajusteService(validacoes);

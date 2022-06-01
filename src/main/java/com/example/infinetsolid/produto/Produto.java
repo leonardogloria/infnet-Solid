@@ -5,40 +5,29 @@ import java.math.RoundingMode;
 import java.time.LocalDate;
 
 public class Produto {
-    private String nome;
-    private String fabricante;
-    private BigDecimal preco;
+    private DadosProduto dadosProduto;
     private LocalDate ultimoReajuste;
 
+    private Categoria categoria;
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
     public void reajustaPreco(BigDecimal novoPreco){
-       this.preco = novoPreco;
+       this.dadosProduto.setPreco(novoPreco);
        this.ultimoReajuste = LocalDate.now();
     }
-
-
-    public String getNome() {
-        return nome;
+    public void promover(Categoria novaCategoria){
+        this.categoria = novaCategoria;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
-    public String getFabricante() {
-        return fabricante;
-    }
 
-    public void setFabricante(String fabricante) {
-        this.fabricante = fabricante;
-    }
-
-    public BigDecimal getPreco() {
-        return preco;
-    }
-
-    public void setPreco(BigDecimal preco) {
-        this.preco = preco;
-    }
 
     public LocalDate getUltimoReajuste() {
         return ultimoReajuste;
