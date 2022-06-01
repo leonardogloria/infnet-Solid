@@ -5,6 +5,14 @@ import java.math.RoundingMode;
 import java.time.LocalDate;
 
 public class Produto {
+    public DadosProduto getDadosProduto() {
+        return dadosProduto;
+    }
+
+    public void setDadosProduto(DadosProduto dadosProduto) {
+        this.dadosProduto = dadosProduto;
+    }
+
     private DadosProduto dadosProduto;
     private LocalDate ultimoReajuste;
 

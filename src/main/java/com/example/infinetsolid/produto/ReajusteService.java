@@ -15,7 +15,7 @@ public class ReajusteService {
 
     public void reajustaPreco(Produto produto, BigDecimal aumento){
         this.validacoes.forEach(validacao -> validacao.validar(produto,aumento));
-        BigDecimal novoPreco = produto.getPreco().add(aumento);
+        BigDecimal novoPreco = produto.getDadosProduto().getPreco().add(aumento);
         produto.reajustaPreco(novoPreco);
     }
 }
