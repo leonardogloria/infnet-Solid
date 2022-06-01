@@ -1,7 +1,6 @@
 package com.example.infinetsolid.produto;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.LocalDate;
 
 public class Produto {
@@ -41,4 +40,6 @@ public class Produto {
     public void setUltimoReajuste(LocalDate ultimoReajuste) {
         this.ultimoReajuste = ultimoReajuste;
     }
+
+
 }
